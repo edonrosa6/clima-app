@@ -36,6 +36,12 @@ function App() {
     return `${day} ${date} de ${month} ${year}`
   }
 
+  const spanishText = (text) => {
+    if(){
+      
+    }
+  }
+
   return (
     <div className={(typeof clima.main != "undefined")
       ? ((clima.main.temp > 16)
