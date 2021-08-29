@@ -17,7 +17,7 @@ function App() {
         .then(result => {
           setClima(result);
           setQuery('');
-          console.log(clima)
+          console.log(result)
         }
         );
     }
@@ -36,10 +36,32 @@ function App() {
     return `${day} ${date} de ${month} ${year}`
   }
 
-  const spanishText = (text) => {
-    if(){
-      
+  const spanishText = (clima) => {
+    switch (clima) {
+      case 'Clouds':
+        clima = 'Nublado'
+        break;
+      case 'Rain':
+        clima = 'Lluvia'
+        break;
+      case 'Clear':
+        clima = 'Limpio'
+        break;
+      case 'Thunderstorm':
+        clima = 'Tormenta Eléctrica'
+        break;
+      case 'Drizzle':
+        clima = 'Llovizna'
+        break;
+      case 'Snow':
+        clima = 'Nieve'
+        break;
+      default:
+        clima = ''
+        break;
     }
+
+    return clima;
   }
 
   return (
@@ -61,7 +83,7 @@ function App() {
 
         </div>
         {(typeof clima.main != "undefined") ? (
-          <>
+          <div className="box">
             <div className="location-box">
               <div className="location">
                 {clima.name}, {clima.sys.country}
@@ -74,11 +96,24 @@ function App() {
               <div className="temp">
                 {Math.round(clima.main.temp)}°C
               </div>
+              <div>
+                <img src={`http://openweathermap.org/img/wn/${clima.weather[0].icon}.png`} alt="clima" className="icono"/>
+              </div>
               <div className="weather">
-                {clima.weather[0].main}
+                {spanishText(clima.weather[0].main)}
+              </div>
+              <div className="description">
+                {clima.weather[0].description}
+              </div>
+              <div className="temp-min">
+                Temperatura mínima: {Math.round(clima.main.temp_min)}°C
+              </div>
+
+              <div className="temp-max">
+                Temperatura máxima: {Math.round(clima.main.temp_max)}°C
               </div>
             </div>
-          </>
+          </div>
         ) : (
           <div className="text-title">
             Busca una ciudad

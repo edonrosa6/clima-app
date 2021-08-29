@@ -22,6 +22,13 @@ main {
   color: #fff;
 }
 
+.icono {
+  width: 70px;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+  margin-top: -15px;
+}
+
 ::placeholder {
   color: #252525;
   margin-left: 50px;
@@ -65,8 +72,17 @@ input {
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.box {
+  padding: 25px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.288);
+  backdrop-filter: blur(0.5rem);
+  width: 50%;
+  margin: auto;
+}
+
 .location-box .location {
-  color: #fff;
+  color: #00b7ff;
   font-size: 32px;
   font-weight: bold;
   text-align: center;
@@ -110,22 +126,68 @@ input {
 .weather-box .temp {
   position: relative;
   display: inline-block;
-  margin: 30px auto;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-
-  padding: 15px 25px;
+  padding: 15px 15px 0px 15px;
 
   color: #fff;
   font-size: 102px;
   font-weight: 900;
 
   text-align: center;
-  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.weather-box .temp-min {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 100;
+  width: 100%;
+  text-align: center;
+}
+
+.weather-box .temp-max {
+  color: #fff;
+  margin-top: 8px;
+  font-size: 20px;
+  font-weight: 100;
+  width: 100%;
+  text-align: center;
+}
+
+.weather-box .description {
+  color: #fff;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 100;
+  width: 225px;
+  text-align: center;
+  border-radius: 50px;
+  padding: 7px;
+  background-color: #00b7ff;
 }
 
 .weather-box .weather {
-  color: #fff;
+  color: #00b7ff;
   font-size: 48px;
-  font-weight: 700;
+  font-weight: bold;
+  text-align: left;
+  width: 190px;
+  padding-left: 15px;
+  border-left: 3px solid #fff;
+  margin: auto;
+}
+
+@media (max-width: 360px) {
+  .weather-box .temp {
+    font-size: 80px;
+  }
+  .weather-box .weather {
+    font-size: 43px;
+  }
+}
+
+@media (max-width: 600px) {
+  .box {
+    width: 80%;
+  }
 }
